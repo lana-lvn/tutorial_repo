@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import s from './Counter.module.css';
 import { changeStep, decrement, increment, reset } from '../../redux/counter/actions';
 
-const Counter = () => {
+export const Counter = () => {
   const dispatch = useDispatch();
   const counter = useSelector(state => state.counter.counter);
   const step = useSelector(state => state.counter.step);
@@ -10,15 +10,19 @@ const Counter = () => {
   const handlePlusClick = () => {
     dispatch(increment());
   };
+
   const handleMinusClick = () => {
-       dispatch(decrement());
+    dispatch(decrement());
   };
-  const handleResetClick = () => { 
-      dispatch(reset());
+
+  const handleResetClick = () => {
+    dispatch(reset());
   };
+
   const handleChangeStep = e => {
     dispatch(changeStep(+e.target.value));
   };
+
   return (
     <div className={s.flexContainer}>
       <div className={s.wrapper}>
@@ -39,5 +43,3 @@ const Counter = () => {
     </div>
   );
 };
-
-export default Counter;

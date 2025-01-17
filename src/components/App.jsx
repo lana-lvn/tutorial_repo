@@ -1,11 +1,13 @@
+import { Counter } from './Counter/Counter';
 import Header from './Header/Header';
-import Counter from './Counter/Counter';
+import { TodoList } from './TodoList/TodoList';
 
 const App = () => {
   return (
     <div>
       <Header />
       <Counter />
+      <TodoList />
     </div>
   );
 };
