@@ -31,7 +31,7 @@ const slice = createSlice({
         state.isLoading = false;
       })
 
-      .addMatcher(isAnyOf(addTodoThunk.pending, editTodoThunk.pending, deleteTodo.pending, fetchData.pending), (state, action) => {
+      .addMatcher(isAnyOf(addTodoThunk.pending, editTodoThunk.pending, deleteTodo.pending, fetchData.pending), (state) => {
         state.isLoading = true;
         state.isError = false;
       })
@@ -56,9 +56,3 @@ const slice = createSlice({
 
 export const todosReducer = slice.reducer;
 export const { changeFilter, toggleFavorite, setFilterByStatus } = slice.actions;
-
-export const selectTodos = state => state.todos.todos;
-export const selectFilter = state => state.todos.filter;
-export const selectIsLoading = state => state.todos.isLoading;
-export const selectIsError = state => state.todos.isError;
-export const selectFilterByStatus = state => state.todos.filterByStatus;
