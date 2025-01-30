@@ -8,7 +8,7 @@ const Item = ({ isCompleted, todo, id, isFavorite }) => {
   const dispatch = useDispatch();
   return (
     <li className={s.item}>
-      <input type='checkbox' checked={isCompleted} onChange={()=> {dispatch(toggleTodo({ isCompleted: !isCompleted, todo, id, isFavorite }))}}/>
+      <input type='checkbox' checked={isCompleted} onChange={() => dispatch(toggleTodo({ isCompleted: !isCompleted, todo, id, isFavorite }))} />
       <p>
         {isFavorite && <FaStar color='gold' />} {todo}
       </p>

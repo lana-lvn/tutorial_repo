@@ -5,9 +5,9 @@ const Filter = () => {
   const dispatch = useDispatch();
   return (
     <div className={s.filter}>
-      <button onClick={() => {dispatch(setFilterByStatus('all'))}}>All</button>
-      <button onClick={() => {dispatch(setFilterByStatus('active'))}}>Active</button>
-      <button onClick={() => {dispatch(setFilterByStatus('completed'))}}>Completed</button>
+      <button onClick={() => dispatch(setFilterByStatus('all'))}>All</button>
+      <button onClick={() => dispatch(setFilterByStatus('active'))}>Active</button>
+      <button onClick={() => dispatch(setFilterByStatus('completed'))}>Completed</button>
     </div>
   );
 };

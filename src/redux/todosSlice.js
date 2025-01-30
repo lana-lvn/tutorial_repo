@@ -31,7 +31,7 @@ const slice = createSlice({
         state.isLoading = false;
       })
 
-      .addMatcher(isAnyOf(addTodoThunk.pending, editTodoThunk.pending, deleteTodo.pending, fetchData.pending), (state) => {
+      .addMatcher(isAnyOf(addTodoThunk.pending, editTodoThunk.pending, deleteTodo.pending, fetchData.pending), (state, action) => {
         state.isLoading = true;
         state.isError = false;
       })

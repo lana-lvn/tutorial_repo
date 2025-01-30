@@ -7,6 +7,7 @@ import { fetchData } from '../../redux/operations';
 import { useEffect } from 'react';
 import { selectIsError, selectIsLoading, selectUncompletedTodosMemo } from '../../redux/selectors';
 import Filter from './Filter';
+
 export const TodoList = () => {
   const dispatch = useDispatch();
   useEffect(() => {
@@ -21,7 +22,7 @@ export const TodoList = () => {
       <AddForm />
       <SearchBar />
       <Filter />
-      <h2>Uncompleted Todos: {uncompleted}</h2>
+      <h2>Uncompleted todos: {uncompleted}</h2>
       <List />
       {isError && <h2>Something went wrong!</h2>}
       {isLoading && <h2>Loading...</h2>}
