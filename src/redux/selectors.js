@@ -24,31 +24,44 @@ export const selectFilteredTodos = state => {
   }
 };
 
-export const selectFilteredTodosMemo = createSelector([selectTodos, selectFilterByStatus], (todos, filterByStatus) => {
-  console.log('Filtered data');
+export const selectFilteredTodosMemo = createSelector(
+  [selectTodos, selectFilterByStatus],
+  (todos, filterByStatus) => {
+    console.log('Filtered data');
 
-  switch (filterByStatus) {
-    case 'completed':
-      return todos.filter(item => item.isCompleted);
-    case 'active':
-      return todos.filter(item => !item.isCompleted);
-    default:
-      return todos;
+    switch (filterByStatus) {
+      case 'completed':
+        return todos.filter(item => item.isCompleted);
+      case 'active':
+        return todos.filter(item => !item.isCompleted);
+      default:
+        return todos;
+    }
   }
-});
+);
 
 export const selectUncompletedTodos = state => {
   console.log('Uncompleted logic');
 
   const todos = selectTodos(state);
-  return todos.reduce((total, curr) => (!curr.isCompleted ? total + 1 : total), 0);
+  return todos.reduce(
+    (total, curr) => (!curr.isCompleted ? total + 1 : total),
+    0
+  );
 };
 
-export const selectUncompletedTodosMemo = createSelector([selectTodos], todos => {
-  console.log('Uncompleted logic');
+export const selectUncompletedTodosMemo = createSelector(
+  [selectTodos],
+  todos => {
+    console.log('Uncompleted logic');
 
-  return todos.reduce((total, curr) => (!curr.isCompleted ? total + 1 : total), 0);
-});
+    return todos.reduce(
+      (total, curr) => (!curr.isCompleted ? total + 1 : total),
+      0
+    );
+  }
+);
 
 export const selectUser = state => state.auth.user;
 export const selectIsLoggedIn = state => state.auth.isLoggedIn;
+export const selecIsRefreshing = state => state.auth.isRefreshing;
